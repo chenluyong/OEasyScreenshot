@@ -1,3 +1,26 @@
+/*
+版权所有 [2017] [瓯裔]
+
+   根据 Apache 许可证 2.0 版（以下简称“许可证”）授权；
+   除非遵守本许可，否则您不能使用这个文件。
+   您可以获得该许可的副本：
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+
+   除非适用法律需要或者书面同意，按本许可分发的软件
+   要按“原样”分发，没有任何形式的，明确或隐含的担保条款。
+   参见按照本许可控制许可权限及限制的特定语言的许可证。
+
+   你可以获得该代码的最新版本：
+
+        https://git.oschina.net/Mr_ChenLuYong/screenshot
+
+   开源社区的所有人都期待与你的共同维护。
+*/
+
+
+
 #include "oescreen.h"
 #include <QApplication>
 #include <QMouseEvent>
@@ -13,8 +36,9 @@
 #include <QDebug>
 #endif
 
+bool OEScreen::isInit_ = false;
 OEScreen::OEScreen(QPixmap *originPainting, QPoint pos, QWidget *parent)
-    : QWidget(parent),isInit_(false), direction_(NONE), originPoint_(pos),
+    : QWidget(parent), direction_(NONE), originPoint_(pos),
       isPressed_(false), originPainting_(originPainting) {
     menu_ = new QMenu(this);
     menu_->addAction("完成截图", this, SLOT(onSaveScreen()));
@@ -27,8 +51,11 @@ OEScreen::OEScreen(QPixmap *originPainting, QPoint pos, QWidget *parent)
             this, SLOT(onSaveScreen()));
 
     // 设置成无边框对话框
-    this->setWindowFlags(Qt::FramelessWindowHint|Qt::WindowSystemMenuHint);
-    this->setMouseTracking(true);
+    setWindowFlags(Qt::FramelessWindowHint|Qt::WindowSystemMenuHint);
+    // 开启鼠标实时追踪
+    setMouseTracking(true);
+    // 默认隐藏
+    hide();
 }
 
 OEScreen::DIRECTION OEScreen::getRegion(const QPoint &cursor) {
@@ -125,7 +152,6 @@ void OEScreen::mouseReleaseEvent(QMouseEvent * e) {
     if (e->button() == Qt::LeftButton) {
         isPressed_ = false;
         if(direction_ != NONE) {
-            releaseMouse();
             setCursor(QCursor(Qt::SizeAllCursor));
         }
     }
@@ -173,7 +199,7 @@ void OEScreen::mouseMoveEvent(QMouseEvent * e) {
             case RIGHT:
                 return onMouseChange(global_x, prightbottom.y() + 1);
             case UP:
-                return onMouseChange(global_x, gloPoint.y());
+                return onMouseChange(ptopleft.x(), gloPoint.y());
             case DOWN:
                 return onMouseChange(prightbottom.x() + 1, gloPoint.y());
             case LEFTTOP:
@@ -189,11 +215,46 @@ void OEScreen::mouseMoveEvent(QMouseEvent * e) {
             // 窗口的移动
             move(e->globalPos() - movePos_);
             movePos_ = e->globalPos() - pos();
-            emit postionChange(pos().x(),pos().y());
             e->accept();
         }
     }
     currentRect_ = geometry();
+}
+
+void OEScreen::moveEvent(QMoveEvent *) {
+    emit postionChange(x(), y());
+}
+
+void OEScreen::resizeEvent(QResizeEvent *) {
+    listMarker_.clear();
+
+    // 重新计算八个锚点
+    // 角点
+    listMarker_.push_back(QPoint(0, 0));
+    listMarker_.push_back(QPoint(width(), 0));
+    listMarker_.push_back(QPoint(0, height()));
+    listMarker_.push_back(QPoint(width(), height()));
+
+    // 中点
+    listMarker_.push_back(QPoint((width() >> 1), 0));
+    listMarker_.push_back(QPoint((width() >> 1), height()));
+    listMarker_.push_back(QPoint(0, (height() >> 1)));
+    listMarker_.push_back(QPoint(width(), (height() >> 1)));
+
+    emit sizeChange(width(), height());
+}
+
+void OEScreen::showEvent(QShowEvent *)
+{
+    isInit_ = true;
+}
+
+void OEScreen::hideEvent(QHideEvent *)
+{
+    currentRect_ = {};
+    movePos_ = {};
+    originPoint_ = {};
+    isInit_ = false;
 }
 
 void OEScreen::enterEvent(QEvent *e) {
@@ -204,6 +265,11 @@ void OEScreen::enterEvent(QEvent *e) {
 void OEScreen::leaveEvent(QEvent *e) {
     setCursor(Qt::ArrowCursor);
     QWidget::leaveEvent(e);
+}
+
+void OEScreen::closeEvent(QCloseEvent *)
+{
+    isInit_ = false;
 }
 
 void OEScreen::paintEvent(QPaintEvent *) {
@@ -221,19 +287,8 @@ void OEScreen::paintEvent(QPaintEvent *) {
     pen.setWidth(4); //改变点的宽度
     pen.setColor(Qt::red);
     painter.setPen(pen);
-    QPolygon temp_anchors;
-    // 角点
-    temp_anchors.push_back(QPoint(0, 0));
-    temp_anchors.push_back(QPoint(width(), 0));
-    temp_anchors.push_back(QPoint(0, height()));
-    temp_anchors.push_back(QPoint(width(), height()));
 
-    // 中点
-    temp_anchors.push_back(QPoint((width() >> 1), 0));
-    temp_anchors.push_back(QPoint((width() >> 1), height()));
-    temp_anchors.push_back(QPoint(0, (height() >> 1)));
-    temp_anchors.push_back(QPoint(width(), (height() >> 1)));
-    painter.drawPoints(temp_anchors);
+    painter.drawPoints(listMarker_);
 }
 
 const QString OEScreen::getFileName(void) {
@@ -276,10 +331,8 @@ void OEScreen::onMouseChange(int w, int h) {
 
     // 改变大小
     currentRect_ = QRect(rx, ry, rw, rh);
-    emit sizeChange(rw, rh);
 
     this->setGeometry(currentRect_);
-    emit postionChange(currentRect_.x(),currentRect_.y());
     // 改变大小后更新父窗口，防止父窗口未及时刷新而导致的问题
     parentWidget()->update();
 }

@@ -1,3 +1,25 @@
+/*
+版权所有 [2017] [瓯裔]
+
+   根据 Apache 许可证 2.0 版（以下简称“许可证”）授权；
+   除非遵守本许可，否则您不能使用这个文件。
+   您可以获得该许可的副本：
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+
+   除非适用法律需要或者书面同意，按本许可分发的软件
+   要按“原样”分发，没有任何形式的，明确或隐含的担保条款。
+   参见按照本许可控制许可权限及限制的特定语言的许可证。
+
+   你可以获得该代码的最新版本：
+
+        https://git.oschina.net/Mr_ChenLuYong/screenshot
+
+   开源社区的所有人都期待与你的共同维护。
+*/
+
+
 #ifndef OESCREEN_H
 #define OESCREEN_H
 
@@ -43,7 +65,10 @@ public:
 
     explicit OEScreen(QPixmap* originPainting, QPoint pos, QWidget *parent = 0);
 
-    void done(void) { isInit_ = true; }
+    ~OEScreen() { isInit_ = false; }
+    static bool state(void) { return isInit_; }
+
+    void setOriginPoint(const QPoint& pt) {originPoint_ = pt;}
 protected:
 
     /*
@@ -62,8 +87,15 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent *e);
     virtual void mouseMoveEvent(QMouseEvent *e);
 
+    virtual void moveEvent(QMoveEvent *);
+    virtual void resizeEvent(QResizeEvent *);
+
+
+    virtual void showEvent(QShowEvent *);
+    virtual void hideEvent(QHideEvent *);
     virtual void enterEvent(QEvent *e);
     virtual void leaveEvent(QEvent *e);
+    virtual void closeEvent(QCloseEvent *);
 
     virtual void paintEvent(QPaintEvent *);
 
@@ -85,7 +117,6 @@ public slots:
      * 函数：onSizeChange
      * 参数：w 宽度
      * 参数：h 高度
-     * 作者：陈鲁勇
      * 时间：2017年04月16日
      */
     void onMouseChange(int w,int h);
@@ -93,7 +124,6 @@ public slots:
     /*
      * 功能：保存屏幕到剪切板中
      * 函数：onSaveScreenOther
-     * 作者：陈鲁勇
      * 时间：2017年04月16日
      */
     void onSaveScreen(void);
@@ -103,22 +133,21 @@ protected slots:
     /*
      * 功能：保存编辑屏幕到其他路径下
      * 函数：onSaveScreenOther
-     * 作者：陈鲁勇
      * 时间：2017年04月16日
      */
     void onSaveScreenOther(void);
 
     /*
      * 功能：退出当前截图窗口
-     * 函数：quitApp
-     * 作者：陈鲁勇
+     * 函数：quitScreenshot
      * 时间：2017年04月16日
      */
     void quitScreenshot(void);
 
 private:
+
     // 是否已经设置初始大小
-    bool isInit_;
+    static bool isInit_;
     // 窗口大小改变时，记录改变方向
     DIRECTION direction_;
     // 起点
@@ -127,6 +156,8 @@ private:
     bool isPressed_;
     // 拖动的距离
     QPoint movePos_;
+    // 标记锚点
+    QPolygon listMarker_;
     // 屏幕原画
     QPixmap* originPainting_;
     // 当前窗口几何数据 用于绘制截图区域
