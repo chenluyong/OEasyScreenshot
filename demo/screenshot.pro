@@ -1,3 +1,33 @@
+#��Ȩ���� [2017] [����]
+
+#   ���� Apache ����֤ 2.0 �棨���¼��ơ�����֤������Ȩ��
+#   �������ر����ɣ�����������ʹ�������ļ���
+#   �����Ի��ø����ɵĸ�����
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+
+#   �������÷�����Ҫ��������ͬ�⣬�������ɷַ�������
+#   Ҫ����ԭ�����ַ���û���κ���ʽ�ģ���ȷ�������ĵ������
+#   �μ����ձ����ɿ�������Ȩ�޼����Ƶ��ض����Ե�����֤��
+
+#   �����Ի��øô��������°汾��
+
+#        https://git.oschina.net/Mr_ChenLuYong/screenshot
+
+#   ��Դ�����������˶��ڴ������Ĺ�ͬά����
+
+
+#   ����������Щ���뻹�в������ĵط�����ͨ�����µ����½���ѧϰ��
+
+#        ���͵�ַ��http://blog.csdn.net/csnd_ayo
+
+#        ���µ�ַ��http://blog.csdn.net/csnd_ayo/article/details/70197915
+
+#	�ڴ����ύBug����ӭIssues��
+
+
+
 #-------------------------------------------------
 #
 # Project created by QtCreator 2017-04-14T22:20:59
@@ -6,6 +36,8 @@
 
 QT       += core gui
 CONFIG += C++11
+
+include(qxt/qxt.pri)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,15 +61,14 @@ SOURCES += main.cpp\
     oeamplifier.cpp \
     oescreen.cpp \
     oerect.cpp \
-    oecommonhelper.cpp
+    oecommonhelper.cpp \
+    oescreenshotwidget.cpp
 
 HEADERS  += oescreenshot.h \
     oeamplifier.h \
     oescreen.h \
     oerect.h \
-    oecommonhelper.h
-
-RESOURCES += \
-    screen.qrc
+    oecommonhelper.h \
+    oescreenshotwidget.h
 
 DISTFILES +=
