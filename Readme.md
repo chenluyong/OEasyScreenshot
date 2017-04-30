@@ -1,3 +1,4 @@
+
 # 首页致词
 
 这个项目，有幸得到你的浏览。
@@ -16,7 +17,33 @@
 
 Qt库版本：Qt 5.8.1 （测试5.0以上都可以正常编译）
 
-更新内容 [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/blob/master/doc/%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2.md?dir=0&filepath=doc%2F%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2.md&oid=1c7dd04bf4e254f214705643a87ab75c4ef27391&sha=23567dd631032a8ad1e49191faed3c40915c6149)
+更新内容 [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+
+
+效果演示 - demo show [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+
+
+doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screenshot/attach_files/download?i=80250&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F01%2F32%2FPaAvDFkEMRiAU8ApAAR5kUgxDQw424.zip%3Ftoken%3D24f7dad07568a7807aa4e6e7407e5bec%26ts%3D1493447261%26attname%3Ddoc.zip)
+
+# 待开发功能
+
+- 全局热键
+
+     1.能够全局响应
+
+     2.可自定义呼出的函数或功能
+
+- 绘图功能
+
+     1.马赛克
+
+     2.图形
+
+     3.文字
+
+     4.撤销功能
+
+     5.擦除功能
 
 
 # 开源通知
