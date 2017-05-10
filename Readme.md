@@ -13,7 +13,7 @@
 
 # 示例效果
 
-![示例效果](http://img.blog.csdn.net/20170427214737758?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ1NORF9BeW8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast "OEScreenshot")
+![示例效果](https://github.com/chenluyong/screenshot/blob/master/doc/demo%20show/20170401.gif")
 
 
 # 关于项目
@@ -22,10 +22,10 @@
 
 Qt库版本：Qt 5.8.1 （测试5.0以上都可以正常编译）
 
-更新内容 [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+更新内容 [【点击查看】](https://github.com/chenluyong/screenshot/tree/master/doc)
 
 
-效果演示 - demo show [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+效果演示 - demo show [【点击查看】](https://github.com/chenluyong/screenshot/tree/master/doc)
 
 
 doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screenshot/attach_files/download?i=80250&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F01%2F32%2FPaAvDFkEMRiAU8ApAAR5kUgxDQw424.zip%3Ftoken%3D24f7dad07568a7807aa4e6e7407e5bec%26ts%3D1493447261%26attname%3Ddoc.zip)
@@ -57,7 +57,7 @@ doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screensho
 
     项目名：oe_screenshot
 
-    开源协议：[Apache-2.0](https://git.oschina.net/Mr_ChenLuYong/screenshot/blob/master/LICENSE%20-%20Chinese?dir=0&filepath=LICENSE+-+Chinese&oid=e397dfabe7c0920e5f34e505f9a4695bcb897752&sha=8ea256ada89ab0bd9c57f5cbfed29974ecf7f24c)
+    开源协议：[Apache-2.0](https://github.com/chenluyong/screenshot/blob/master/LICENSE%20-%20English)
 
     作者：Mr_ChenLuYong
 
