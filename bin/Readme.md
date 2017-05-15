@@ -1,4 +1,4 @@
-﻿当前依赖文件树
+# 当前依赖文件树
 
 ----
 
@@ -34,3 +34,9 @@ Qt5Widgets.dll
 
 
 -----
+
+
+
+# 相关文章
+
+[Qt 使用 windeployqt 讲述史上最正确window发布版本的生成姿势](http://blog.csdn.net/csnd_ayo/article/details/72130015)
