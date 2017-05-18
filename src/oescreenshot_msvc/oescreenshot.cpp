@@ -46,7 +46,9 @@
 #include <QDebug>
 #endif
 
+#ifdef Q_OS_WIN32
 #include <windows.h>
+#endif
 
 #include "oeamplifier.h"
 #include "oecommonhelper.h"
@@ -236,7 +238,7 @@ void OEScreenshot::onEgoistic(void)
 {
     /// ´°¿ÚÖÃ¶¥
 #ifdef Q_OS_WIN32
-    SetWindowPos((HWND)this->winId(),HWND_TOPMOST,this->pos().x(),this->pos().y(),this->width(),this->height(),SWP_SHOWWINDOW);
+    SetWindowPos((HWND)this->winId(),HWND_TOPMOST,pos().x(),pos().y(),width(),height(),SWP_SHOWWINDOW);
 #else
     Qt::WindowFlags flags = windowFlags();
     flags |= Qt::WindowStaysOnTopHint;
