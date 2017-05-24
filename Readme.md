@@ -1,4 +1,4 @@
-
+﻿
 # 首页致词
 
 这个项目，有幸得到你的浏览。
@@ -109,4 +109,4 @@ doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screensho
 
     码云地址：http://git.oschina.net/Mr_ChenLuYong/screenshot  【实时更新，作者关注】
 
-    github地址：https://github.com/chenluyong/screenshot    【更新较慢，且无任何Commit记录】
+    github地址：https://github.com/chenluyong/OEasyScreenshot   
