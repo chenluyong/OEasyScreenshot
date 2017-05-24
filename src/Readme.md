@@ -1,6 +1,9 @@
-﻿该文件夹包含了OEScreenshot核心文件。
+﻿- 注：当前源码MinGW为实时更新的版本，MSVC同步性不高，建议使用MinGW，或妥善修改MSVC。
 
-通过加载  OEScreenshot.h  即可直接使用。
+
+该文件夹包含了OEScreenshot核心文件。
+
+通过加载  OEScreenshot  即可直接使用。
 
     /**
 

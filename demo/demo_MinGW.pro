@@ -16,15 +16,14 @@ include(MinGW/qxt/qxt.pri)
 
 SOURCES += MinGW/main.cpp\
         MinGW/widget.cpp \
-    ../src/oescreenshot/oeamplifier.cpp \
-    ../src/oescreenshot/oecommonhelper.cpp \
-    ../src/oescreenshot/oemodelview.cpp \
-    ../src/oescreenshot/oescreenshot.cpp
+    ../src/OE/oescreenshot/oeamplifier.cpp \
+    ../src/OE/oescreenshot/oecommonhelper.cpp \
+    ../src/OE/oescreenshot/oemodelview.cpp \
+    ../src/OE/oescreenshot/oescreenshot.cpp
 
 HEADERS  += MinGW/widget.h \
-    ../src/oescreenshot/oeamplifier.h \
-    ../src/oescreenshot/oecommonhelper.h \
-    ../src/oescreenshot/oemodelview.h \
-    ../src/oescreenshot/oescreenshot.h
+    ../src/OE/oescreenshot/oeamplifier.h \
+    ../src/OE/oescreenshot/oecommonhelper.h \
+    ../src/OE/oescreenshot/oemodelview.h \
+    ../src/OE/oescreenshot/oescreenshot.h
 
-FORMS    += MinGW/widget.ui

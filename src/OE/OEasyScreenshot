@@ -1,0 +1,5 @@
+#ifdef _MSC_VER
+#include "oescreenshot_msvc/oescreenshot.h"
+#elif __MINGW32__
+#include "oescreenshot/oescreenshot.h"
+#endif

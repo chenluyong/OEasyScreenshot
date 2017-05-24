@@ -16,15 +16,14 @@ include(MSVC/qxt/qxt.pri)
 
 SOURCES += MSVC/main.cpp\
         MSVC/widget.cpp \
-    ../src/oescreenshot_msvc/oeamplifier.cpp \
-    ../src/oescreenshot_msvc/oecommonhelper.cpp \
-    ../src/oescreenshot_msvc/oemodelview.cpp \
-    ../src/oescreenshot_msvc/oescreenshot.cpp
+    ../src/OE/oescreenshot_msvc/oeamplifier.cpp \
+    ../src/OE/oescreenshot_msvc/oecommonhelper.cpp \
+    ../src/OE/oescreenshot_msvc/oemodelview.cpp \
+    ../src/OE/oescreenshot_msvc/oescreenshot.cpp
 
 HEADERS  += MSVC/widget.h \
-    ../src/oescreenshot_msvc/oeamplifier.h \
-    ../src/oescreenshot_msvc/oecommonhelper.h \
-    ../src/oescreenshot_msvc/oemodelview.h \
-    ../src/oescreenshot_msvc/oescreenshot.h
+    ../src/OE/oescreenshot_msvc/oeamplifier.h \
+    ../src/OE/oescreenshot_msvc/oecommonhelper.h \
+    ../src/OE/oescreenshot_msvc/oemodelview.h \
+    ../src/OE/oescreenshot_msvc/oescreenshot.h
 
-FORMS    += MSVC/widget.ui
