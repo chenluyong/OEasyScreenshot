@@ -212,29 +212,29 @@ private:
 private:
 
     /// 截屏窗口是否已经展示
-    bool isLeftPressed_;
+    bool                        isLeftPressed_;
     /// 用于检测误操作
-    QPoint startPoint_;
+    QPoint                      startPoint_;
     /// 当前桌面屏幕的矩形数据
     QRect desktopRect_;
     /// 屏幕暗色背景图
-    std::shared_ptr<QPixmap> backgroundScreen_;
+    std::shared_ptr<QPixmap>    backgroundScreen_;
     /// 屏幕原画
-    std::shared_ptr<QPixmap> originPainting_;
+    std::shared_ptr<QPixmap>    originPainting_;
     /// 截图屏幕
-    std::shared_ptr<OEScreen> screenTool_;
+    std::shared_ptr<OEScreen>   screenTool_;
     /// 截图器大小感知器
-    std::shared_ptr<OERect> rectTool_;
+    std::shared_ptr<OERect>     rectTool_;
     /// 放大取色器
     std::shared_ptr<OEAmplifier> amplifierTool_;
     /// 当前鼠标选区最小的矩形窗口
-    QRect windowRect_;
+    QRect                       windowRect_;
     /// 截屏实例对象
-    static OEScreenshot *self_;
+    static OEScreenshot         *self_;
     /// 置顶定时器
-    QTimer* egoisticTimer_;
+    QTimer                      *egoisticTimer_;
     /// 活动窗口
-    static bool isActivity_;
+    static bool                 isActivity_;
 private slots:
 
     /**
@@ -292,9 +292,9 @@ public slots:
 
 private:
     /// 背景色
-    std::shared_ptr<QPixmap> backgroundPixmap_;
+    std::shared_ptr<QPixmap>    backgroundPixmap_;
     /// 显示的文字信息
-    QString info_;
+    QString                     info_;
 };
 
 
@@ -483,23 +483,23 @@ protected slots:
 private:
 
     /// 是否已经设置初始大小
-    static bool isInit_;
+    static bool     isInit_;
     /// 窗口大小改变时，记录改变方向
-    DIRECTION direction_;
+    DIRECTION       direction_;
     /// 起点
-    QPoint originPoint_;
+    QPoint          originPoint_;
     /// 鼠标是否按下
-    bool isPressed_;
+    bool            isPressed_;
     /// 拖动的距离
-    QPoint movePos_;
+    QPoint          movePos_;
     /// 标记锚点
-    QPolygon listMarker_;
+    QPolygon        listMarker_;
     /// 屏幕原画
     std::shared_ptr<QPixmap> originPainting_;
     /// 当前窗口几何数据 用于绘制截图区域
-    QRect currentRect_;
+    QRect           currentRect_;
     /// 右键菜单对象
-    QMenu *menu_;
+    QMenu           *menu_;
 
 };
 

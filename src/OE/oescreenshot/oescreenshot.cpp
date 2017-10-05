@@ -309,6 +309,8 @@ void OEScreenshot::mouseReleaseEvent(QMouseEvent *e) {
             rectTool_->hide();
             amplifierTool_->onPostionChange(e->x(), e->y());
             amplifierTool_->show();
+            /// 更新当前鼠标选中的窗口
+            updateMouse();
             return destroyScreen();
         }
         close();
@@ -376,6 +378,7 @@ void OEScreenshot::paintEvent(QPaintEvent *) {
 void OEScreenshot::updateMouse(void) {
     /// 获取当前鼠标选中的窗口
     ::EnableWindow((HWND)winId(), FALSE);
+    /// @marker: 只更新一次,可以修复用户误操作导致的查找窗口与识别界面窗口不一致.
     OECommonHelper::getSmallestWindowFromCursor(windowRect_);
     QPoint temp_pt = mapFromGlobal(QPoint(windowRect_.x(), windowRect_.y()));
     windowRect_ = QRect(temp_pt.x(), temp_pt.y(),
@@ -636,7 +639,9 @@ void OEScreen::mouseMoveEvent(QMouseEvent * e) {
             /// @bug :这里可能存在问题, 不应当使用globalPos
             move(e->globalPos() - movePos_);
             movePos_ = e->globalPos() - pos();
+#ifndef QT_NO_DEBUG
             qDebug() << pos();
+#endif
         }
     }
     currentRect_ = geometry();
@@ -760,4 +765,9 @@ void OEScreen::onMouseChange(int x, int y) {
     this->setGeometry(currentRect_);
     /// 改变大小后更新父窗口，防止父窗口未及时刷新而导致的问题
     parentWidget()->update();
+}
+
+
+extern "C" void OEScreenshot(void) {
+    OEScreenshot::Instance();
 }
