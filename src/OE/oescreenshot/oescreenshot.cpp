@@ -615,6 +615,9 @@ void OEScreen::mouseMoveEvent(QMouseEvent * e) {
     else {
         if(direction_ != NONE) {
             const int& global_x = gloPoint.x();
+#ifndef QT_NO_DEBUG
+            qDebug() << "OEScreen::" << __FUNCTION__ << "call onMouseChange()";
+#endif
             /// 鼠标进行拖拉拽
             switch(direction_) {
             case LEFT:
@@ -640,7 +643,7 @@ void OEScreen::mouseMoveEvent(QMouseEvent * e) {
             move(e->globalPos() - movePos_);
             movePos_ = e->globalPos() - pos();
 #ifndef QT_NO_DEBUG
-            qDebug() << pos();
+            qDebug() << "OEScreen::" << __FUNCTION__ << pos();
 #endif
         }
     }
