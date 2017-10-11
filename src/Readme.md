@@ -1,4 +1,5 @@
 ﻿- 注：当前源码MinGW为实时更新的版本，MSVC同步性不高，建议使用MinGW，或妥善修改MSVC。
+﻿- 详情查看 doc/build 目录下的文档
 
 
 该文件夹包含了OEScreenshot核心文件。
