@@ -17,7 +17,7 @@
 
 # 示例效果
 
-![示例效果](https://github.com/chenluyong/OEasyScreenshot/blob/master/doc/demo%20show/20170429.gif)
+![示例效果](doc/demo%20show/20170429.gif)
 
 
 # 关于项目
@@ -55,7 +55,7 @@
 
      5.擦除功能
 
-绘图功能，作者已给出范例，可以模仿修改优化。  [【点击前往】](http://git.oschina.net/Mr_ChenLuYong/screenshot/blob/master/src/oescreenshot/oemodelview.cpp)
+绘图功能，作者已给出范例，可以模仿修改优化。  [【点击前往】](src/OE/oescreenshot/oemodelview.cpp)
 
 
 ----
@@ -64,14 +64,14 @@
 
 Qt库版本：Qt 5.8.1 （测试5.0以上都可以正常编译）
 
-更新内容： [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+更新内容： [【点击查看】](doc)
 
 
 
-效果演示 - demo show [【点击查看】](https://git.oschina.net/Mr_ChenLuYong/screenshot/tree/master/doc)
+效果演示 - demo show [【点击查看】](doc)
 
 
-doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screenshot/attach_files/download?i=80250&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F01%2F32%2FPaAvDFkEMRiAU8ApAAR5kUgxDQw424.zip%3Ftoken%3D24f7dad07568a7807aa4e6e7407e5bec%26ts%3D1493447261%26attname%3Ddoc.zip)
+doc文档： [【点击下载】](https://gitee.com/Mr_ChenLuYong/screenshot/attach_files/download?i=80250&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F01%2F32%2FPaAvDFkEMRiAU8ApAAR5kUgxDQw424.zip%3Ftoken%3D904472a9bfa0afa7162465cbf5b6b3e2%26ts%3D1538794364%26attname%3Ddoc.zip)
 
 
 附   言： 如果您通过其它环境编译通过（例：VS2010~VS2017 或 Linux）， 都可以Pull有效文件来，请允许我代表需要这份代码的所有朋友们，感谢您。
@@ -85,7 +85,7 @@ doc文档： [【点击下载】](http://git.oschina.net/Mr_ChenLuYong/screensho
 
     项目名：oe_screenshot
 
-    开源协议：[Apache-2.0](https://git.oschina.net/Mr_ChenLuYong/screenshot/blob/master/LICENSE%20-%20Chinese?dir=0&filepath=LICENSE+-+Chinese&oid=e397dfabe7c0920e5f34e505f9a4695bcb897752&sha=8ea256ada89ab0bd9c57f5cbfed29974ecf7f24c)
+    开源协议：[Apache-2.0](LICENSE)
 
     作者：Mr_ChenLuYong
 
